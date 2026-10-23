@@ -1,0 +1,13 @@
+.env
+!.env.example
+.idea/
+.DS_Store
+/bin/
+/coverage.out
+**/.gradle/
+**/.kotlin/
+**/build/
+android/local.properties
+*.jks
+*.keystore
+

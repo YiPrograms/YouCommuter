@@ -1,0 +1,23 @@
+[
+  {
+    "capacity": 30,
+    "systemType": "youbike_2",
+    "latitude": 25.02605,
+    "longitude": 121.5436,
+    "version": "86dce8f79046380e086b2371460af596"
+  },
+  {
+    "capacity": null,
+    "systemType": "unknown",
+    "latitude": 24.78,
+    "longitude": 121.01,
+    "version": "65cc029e8e464babf63d514993c85d8e"
+  },
+  {
+    "capacity": 12,
+    "systemType": "youbike_2",
+    "latitude": -12.3456785,
+    "longitude": 123.4567895,
+    "version": "bf48b32d8d1bccd574053392dc8f58c9"
+  }
+]

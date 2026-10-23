@@ -1,0 +1,9 @@
+<resources>
+    <string name="reminder_all_bikes">All</string>
+    <string name="reminder_bike_types">🚲 %1$s　⚡ %2$s</string>
+    <string name="reminder_bike_types_description">Regular bikes %1$s, electric bikes %2$s</string>
+    <string name="reminder_regular_label">Regular</string>
+    <string name="reminder_electric_label">Electric</string>
+    <string name="reminder_regular_description">Regular bikes: %1$s</string>
+    <string name="reminder_electric_description">Electric bikes: %1$s</string>
+</resources>

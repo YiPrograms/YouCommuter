@@ -1,0 +1,29 @@
+<resources>
+    <string name="stations_title">Stations</string>
+    <string name="search_station">Search stations</string>
+    <string name="not_configured">Station data unavailable</string>
+    <string name="network_error">Could not connect. Check your connection and retry.</string>
+    <string name="service_error">The station service is temporarily unavailable.</string>
+    <string name="response_error">Could not load stations. Retry.</string>
+    <string name="no_regions">No service regions</string>
+    <string name="no_stations">No matching stations</string>
+    <string name="retry">Retry</string>
+    <string name="load_more">More</string>
+    <string name="close">Close</string>
+    <string name="unavailable_short">Unavailable</string>
+    <string name="bikes_count">Bikes: %1$s</string>
+    <string name="docks_count">Docks: %1$s</string>
+    <string name="regular_count">Regular %1$s</string>
+    <string name="electric_count">Electric %1$s</string>
+    <string name="updated_at">Updated %1$s</string>
+    <string name="no_current_data">No data</string>
+    <string name="status_closed">Temporarily closed</string>
+    <string name="status_retired">No longer operating</string>
+    <string name="status_unknown">Status unknown</string>
+    <string name="freshness_fresh">Live</string>
+    <string name="freshness_aging">Aging</string>
+    <string name="freshness_stale">Stale</string>
+    <string name="freshness_unavailable">Update time unknown</string>
+    <string name="refresh">Refresh</string>
+    <string name="clear_search">Clear search</string>
+</resources>

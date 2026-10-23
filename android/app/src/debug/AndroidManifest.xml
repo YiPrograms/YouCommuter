@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries><package android:name="tw.com.youbike.plus" /></queries>
+    <application android:networkSecurityConfig="@xml/debug_network_security">
+        <activity android:name=".observation.BorrowObservationActivity" android:exported="false" />
+        <service android:name=".observation.BorrowObservationService" android:exported="false"
+            android:foregroundServiceType="connectedDevice" android:stopWithTask="true" />
+    </application>
+</manifest>

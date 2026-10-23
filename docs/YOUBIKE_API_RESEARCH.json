@@ -1,0 +1,377 @@
+{
+  "researchDate": "2026-10-19",
+  "timezone": "Asia/Taipei",
+  "apk": {
+    "package": "tw.com.youbike.plus",
+    "version": "3.14.0",
+    "versionCode": 1413,
+    "baseSha256": "d6e49d563708b360d6046d489e43b5a4d7a60f6c0aafb019cf6558a336557dda"
+  },
+  "requestAuthentication": {
+    "loginUsed": false,
+    "authorizationHeaderUsed": false,
+    "cookieUsed": false,
+    "apiKeyUsed": false
+  },
+  "snapshot": {
+    "metadata": {
+      "url": "https://apis.youbike.com.tw/json/station-yb2.json",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 6328378,
+      "date": "Mon, 19 Oct 2026 15:04:29 GMT",
+      "lastModified": "Mon, 19 Oct 2026 15:03:38 GMT",
+      "etag": "W/\"6ad6314a-60903a\"",
+      "cacheControl": "max-age=0 ,must-revalidate",
+      "seconds": 0.21,
+      "sha256": "f141a574c425513ec5837531ae25a25fa2a03102997bdf6de597737d5596fdbc"
+    },
+    "stationCount": 9701,
+    "uniqueStationIds": 9701,
+    "statusCounts": {
+      "1": 9532,
+      "2": 169
+    },
+    "systemTypeCounts": {
+      "2": 9701
+    },
+    "regions": [
+      {
+        "code": "00",
+        "name": "台北市",
+        "stations": 1821
+      },
+      {
+        "code": "01",
+        "name": "台中市",
+        "stations": 1842
+      },
+      {
+        "code": "05",
+        "name": "新北市",
+        "stations": 1614
+      },
+      {
+        "code": "07",
+        "name": "桃園市",
+        "stations": 710
+      },
+      {
+        "code": "08",
+        "name": "嘉義市",
+        "stations": 229
+      },
+      {
+        "code": "09",
+        "name": "新竹市",
+        "stations": 175
+      },
+      {
+        "code": "0A",
+        "name": "苗栗縣",
+        "stations": 218
+      },
+      {
+        "code": "0B",
+        "name": "新竹縣",
+        "stations": 224
+      },
+      {
+        "code": "10",
+        "name": "新竹科學工業園區",
+        "stations": 42
+      },
+      {
+        "code": "11",
+        "name": "嘉義縣",
+        "stations": 195
+      },
+      {
+        "code": "12",
+        "name": "高雄市",
+        "stations": 1519
+      },
+      {
+        "code": "13",
+        "name": "臺南市",
+        "stations": 793
+      },
+      {
+        "code": "14",
+        "name": "屏東縣",
+        "stations": 199
+      },
+      {
+        "code": "15",
+        "name": "臺東縣",
+        "stations": 120
+      }
+    ],
+    "bikeSubtypeSumMismatches": 0,
+    "capacityEquationMismatches": 2832,
+    "sample": {
+      "country_code": "00",
+      "area_code": "00",
+      "type": 2,
+      "status": 1,
+      "station_no": "500101001",
+      "name_tw": "捷運科技大樓站",
+      "district_tw": "大安區",
+      "address_tw": "復興南路二段235號前",
+      "name_en": "MRT Technology Bldg. Sta.",
+      "district_en": "Daan Dist.",
+      "address_en": "No.235, Sec. 2, Fuxing S. Rd.",
+      "name_cn": "",
+      "district_cn": "",
+      "address_cn": "",
+      "parking_spaces": 28,
+      "available_spaces": 2,
+      "available_spaces_detail": {
+        "yb1": 0,
+        "yb2": 1,
+        "eyb": 1
+      },
+      "available_spaces_level": 20,
+      "empty_spaces": 26,
+      "forbidden_spaces": 0,
+      "lat": "25.02605",
+      "lng": "121.5436",
+      "img": "/images/station/default.jpg",
+      "updated_at": "2026-10-19 23:03:31",
+      "time": "2026-10-19 23:03:02"
+    }
+  },
+  "secondSnapshot": {
+    "url": "https://apis.youbike.com.tw/json/station-yb2.json",
+    "status": 200,
+    "date": "Mon, 19 Oct 2026 15:06:53 GMT",
+    "lastModified": "Mon, 19 Oct 2026 15:06:38 GMT",
+    "etag": "W/\"6ad631fe-60905c\"",
+    "contentEncoding": "gzip",
+    "wireBytes": 929034,
+    "decodedBytes": 6328412,
+    "sha256": "6e8546bc262296d03dc50cfde81f1fbc471af06fc12132fb4f56efca5efe1900",
+    "count": 9701,
+    "changedCounts": 1048,
+    "changedTimes": 9701,
+    "sampleTimes": {
+      "time": "2026-10-19 23:06:04",
+      "updated_at": "2026-10-19 23:06:32"
+    }
+  },
+  "conditionalGet": {
+    "url": "https://apis.youbike.com.tw/json/station-yb2.json",
+    "status": 304,
+    "bytes": 0,
+    "etag": "W/\"6ad631fe-60905c\"",
+    "date": "Mon, 19 Oct 2026 15:07:30 GMT"
+  },
+  "endpoints": [
+    {
+      "url": "https://apis.youbike.com.tw/json/station-min-yb2.json",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 4163526,
+      "date": "Mon, 19 Oct 2026 15:04:29 GMT",
+      "lastModified": "Mon, 19 Oct 2026 15:03:38 GMT",
+      "etag": "W/\"6ad6314a-3f87c6\"",
+      "cacheControl": "max-age=0, must-revalidate",
+      "seconds": 0.14,
+      "sha256": "b549b99e4637cd5e4445fa1bbd9a8ae15139db6f47a221e1c8ffd5051dc18df8"
+    },
+    {
+      "url": "https://apis.youbike.com.tw/json/area-all.json",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 19203,
+      "date": "Mon, 19 Oct 2026 15:04:29 GMT",
+      "lastModified": "Mon, 19 Oct 2026 15:00:48 GMT",
+      "etag": "W/\"6ad630a0-4b03\"",
+      "cacheControl": "max-age=0, must-revalidate",
+      "seconds": 0.03,
+      "sha256": "ccc4612a2173772014f23ebc32fb7b6531e51f40b7a416cbb7f63ce0be78991f"
+    },
+    {
+      "method": "GET",
+      "url": "https://apis.youbike.com.tw/tw2/stationList?lang=tw&lng=121.5436&lat=25.02605&station_name=%E7%A7%91%E6%8A%80%E5%A4%A7%E6%A8%93",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 928,
+      "date": "Mon, 19 Oct 2026 15:05:26 GMT"
+    },
+    {
+      "method": "GET",
+      "url": "https://apis.youbike.com.tw/tw2/stationInfo?lang=tw&station_no=500101001",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 133,
+      "date": "Mon, 19 Oct 2026 15:05:27 GMT"
+    },
+    {
+      "method": "GET",
+      "url": "https://apis.youbike.com.tw/api/front/bike/lists?station_no=500101001",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 181,
+      "date": "Mon, 19 Oct 2026 15:05:28 GMT"
+    },
+    {
+      "method": "POST",
+      "url": "https://apis.youbike.com.tw/tw2/parkingInfo",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 3890,
+      "date": "Mon, 19 Oct 2026 15:05:28 GMT"
+    },
+    {
+      "method": "POST",
+      "url": "https://apis.youbike.com.tw/tw2/parkingInfo",
+      "requestFields": {
+        "station_no[]": [
+          "500101001",
+          "500101274"
+        ]
+      },
+      "status": 200,
+      "date": "Mon, 19 Oct 2026 15:07:31 GMT",
+      "contentType": "application/json",
+      "bytes": 573
+    },
+    {
+      "url": "https://apis.youbike.com.tw/tw2/parkingInfo",
+      "method": "POST",
+      "status": 200,
+      "date": "Mon, 19 Oct 2026 15:08:56 GMT",
+      "bytes": 4610,
+      "requestedCount": 50,
+      "retCode": 1,
+      "returnedCount": 20,
+      "pagination": {
+        "per_page": 20,
+        "current_page": 1,
+        "total_page": 3,
+        "total": 50
+      },
+      "missingIds": [
+        "500101023",
+        "500101024",
+        "500101025",
+        "500101026",
+        "500101027",
+        "500101028",
+        "500101029",
+        "500101030",
+        "500101031",
+        "500101032",
+        "500101033",
+        "500101034",
+        "500101035",
+        "500101036",
+        "500101037",
+        "500101038",
+        "500101039",
+        "500101040",
+        "500101041",
+        "500101042",
+        "500101091",
+        "500101092",
+        "500101093",
+        "500101094",
+        "500101095",
+        "500101097",
+        "500101098",
+        "500101099",
+        "500101100",
+        "500101101"
+      ]
+    },
+    {
+      "url": "https://apis.youbike.com.tw/tw2/parkingInfo?page=2",
+      "method": "POST",
+      "status": 200,
+      "date": "Mon, 19 Oct 2026 15:09:34 GMT",
+      "bytes": 4623,
+      "retCode": 1,
+      "returnedCount": 20,
+      "pagination": {
+        "per_page": 20,
+        "current_page": 2,
+        "total_page": 3,
+        "total": 50
+      }
+    },
+    {
+      "url": "https://apis.youbike.com.tw/tw2/parkingInfo?page=3",
+      "method": "POST",
+      "status": 200,
+      "date": "Mon, 19 Oct 2026 15:09:34 GMT",
+      "bytes": 2388,
+      "retCode": 1,
+      "returnedCount": 10,
+      "pagination": {
+        "per_page": 20,
+        "current_page": 3,
+        "total_page": 3,
+        "total": 50
+      }
+    }
+  ],
+  "batchPagination": {
+    "requestedIds": 50,
+    "pageCounts": [
+      20,
+      20,
+      10
+    ],
+    "uniqueReturnedIds": 50,
+    "pageQuerySupported": true,
+    "bodyField": "station_no[]"
+  },
+  "electricBikeSample": {
+    "station_no": "500101001",
+    "bike_no": "0261146",
+    "pillar_no": "18",
+    "group_no": 1,
+    "battery_power": 74,
+    "modify_time": 1792421875
+  },
+  "containerProbe": {
+    "runtime": "youcommuter-backend:local scratch Go image",
+    "validJsonPrefix": true,
+    "prefixBytes": 16384,
+    "firstStation": "500101001",
+    "keys": [
+      "address_cn",
+      "address_en",
+      "address_tw",
+      "area_code",
+      "available_spaces",
+      "available_spaces_detail",
+      "available_spaces_level",
+      "country_code",
+      "district_cn",
+      "district_en",
+      "district_tw",
+      "empty_spaces",
+      "forbidden_spaces",
+      "img",
+      "lat",
+      "lng",
+      "name_cn",
+      "name_en",
+      "name_tw",
+      "parking_spaces",
+      "station_no",
+      "status",
+      "time",
+      "type",
+      "updated_at"
+    ]
+  },
+  "timestampLimitations": {
+    "parkingInfoResponseHasSourceTimestamp": false,
+    "fullSnapshotTimeSemantics": "provider-supplied time and updated_at; physical station/controller observation semantics unverified",
+    "apkMapRefreshUsesLocalNowForDisplayedUpdatedAt": true
+  },
+  "temporaryEvidenceDirectory": "/tmp/youcommuter-youbike-api-research-20261019"
+}

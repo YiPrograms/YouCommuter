@@ -1,0 +1,12 @@
+<resources>
+    <color name="notification_accent">#78D7C3</color>
+    <color name="notification_text_primary">#F0F2F0</color>
+    <color name="notification_text_secondary">#C3C8C4</color>
+    <color name="notification_borrow_surface">#173A32</color>
+    <color name="notification_borrow_accent">#78D7C3</color>
+    <color name="notification_return_surface">#293250</color>
+    <color name="notification_return_accent">#BEC7FF</color>
+    <color name="notification_status_live_surface">#174D38</color>
+    <color name="notification_status_stale_surface">#554800</color>
+    <color name="notification_status_unavailable_surface">#3B3F42</color>
+</resources>

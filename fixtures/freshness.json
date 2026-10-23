@@ -1,0 +1,11 @@
+[
+  {"name":"missing observation","observedAt":null,"now":"2026-10-01T00:10:00Z","cadenceSeconds":60,"expected":"unavailable"},
+  {"name":"fresh boundary","observedAt":"2026-10-01T00:07:30Z","now":"2026-10-01T00:10:00Z","cadenceSeconds":60,"expected":"fresh"},
+  {"name":"aging after boundary","observedAt":"2026-10-01T00:07:29Z","now":"2026-10-01T00:10:00Z","cadenceSeconds":60,"expected":"aging"},
+  {"name":"stale boundary remains aging","observedAt":"2026-10-01T00:00:00Z","now":"2026-10-01T00:10:00Z","cadenceSeconds":60,"expected":"aging"},
+  {"name":"stale source","observedAt":"2026-09-30T23:59:59Z","now":"2026-10-01T00:10:00Z","cadenceSeconds":60,"expected":"stale"},
+  {"name":"five minute source","observedAt":"2026-10-01T00:00:00Z","now":"2026-10-01T00:10:00Z","cadenceSeconds":300,"expected":"fresh"},
+  {"name":"excessive future skew","observedAt":"2026-10-01T00:11:01Z","now":"2026-10-01T00:10:00Z","cadenceSeconds":60,"expected":"unavailable"},
+  {"name":"small future skew","observedAt":"2026-10-01T00:10:30Z","now":"2026-10-01T00:10:00Z","cadenceSeconds":60,"expected":"fresh"},
+  {"name":"invalid cadence","observedAt":"2026-10-01T00:10:00Z","now":"2026-10-01T00:10:00Z","cadenceSeconds":0,"expected":"unavailable"}
+]

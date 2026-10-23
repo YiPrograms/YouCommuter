@@ -1,0 +1,149 @@
+{
+  "date": "2026-10-21",
+  "name": "YouCommuter",
+  "workspace": "/home/yi/Workspace/YouCommuter",
+  "application_id": "dev.yikuo.youcommuter",
+  "debug_application_id": "dev.yikuo.youcommuter.debug",
+  "min_sdk": 29,
+  "android_tests": {
+    "core/data": {
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core/domain": {
+      "tests": 29,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core/database": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core/map": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "feature/routes": {
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "feature/commute": {
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "feature/stations": {
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "android_test_count": 99,
+  "lint": [
+    {
+      "id": "GradleDependency",
+      "severity": "Warning"
+    },
+    {
+      "id": "UseKtx",
+      "severity": "Warning"
+    }
+  ],
+  "backend": {
+    "race_tests": "passed",
+    "vet": "passed",
+    "database_integration": "passed",
+    "compose_integration": "passed",
+    "schema": "single checksum-checked initializer",
+    "live_services": [
+      {
+        "service": "backend",
+        "health": "healthy"
+      },
+      {
+        "service": "collector",
+        "health": "healthy"
+      },
+      {
+        "service": "postgres",
+        "health": "healthy"
+      }
+    ],
+    "address": "http://127.0.0.1:18081",
+    "fresh_station_count_at_check": 9702
+  },
+  "api33": {
+    "api": 33,
+    "prediction_connected": true,
+    "route_round_trip": true,
+    "session_round_trip": true,
+    "reminder_posted": true,
+    "reminder_input_current_format": true,
+    "crash_buffer_empty": true,
+    "pid_after_restart": "5766"
+  },
+  "api30": {
+    "api": 30,
+    "package": "dev.yikuo.youcommuter.debug",
+    "startup": true,
+    "prediction_connected": true,
+    "crash_buffer_empty": true
+  },
+  "reminder_job": {
+    "jobs": 5,
+    "classes": [
+      "dev.yikuo.youcommuter.core.platform.DepartureReminderWorker"
+    ],
+    "keys": [
+      "route_id",
+      "route_revision",
+      "departure_epoch_millis"
+    ]
+  },
+  "audit": {
+    "previous_name_in_source": false,
+    "previous_workspace_present": false,
+    "previous_compose_stack_and_volume_removed": true,
+    "previous_unused_image_tags_removed": 4,
+    "historical_artifacts_removed": true,
+    "current_data_fields_required": true,
+    "current_prediction_format_strict": true,
+    "internal_migrations_removed": true,
+    "supported_android_version_handling_preserved": true,
+    "apk_and_backend_binary_identity_clean": true
+  },
+  "cleanup": {
+    "api33_debug_test_data_cleared": true,
+    "api33_app_locale_reset": true,
+    "emulators_stopped": true,
+    "temporary_api30_avd_deleted": true,
+    "new_compose_stack_left_running": true
+  },
+  "apk": {
+    "debug": {
+      "path": "/home/yi/Workspace/YouCommuter/android/app/build/outputs/apk/debug/app-debug.apk",
+      "sha256": "2441b383b8965ecdb313d03721c77e4d9be85295e633873b9858ca2a0d8ee646"
+    },
+    "release": {
+      "path": "/home/yi/Workspace/YouCommuter/android/app/build/outputs/apk/release/app-release-unsigned.apk",
+      "sha256": "5c8f4023e085cefb5b31c26220e67a742cb26b8c011a0936fdce9137e61e7424"
+    }
+  }
+}

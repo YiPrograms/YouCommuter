@@ -1,0 +1,7 @@
+{
+  "api": 30,
+  "package": "dev.yikuo.youcommuter.debug",
+  "startup": true,
+  "prediction_connected": true,
+  "crash_buffer_empty": true
+}

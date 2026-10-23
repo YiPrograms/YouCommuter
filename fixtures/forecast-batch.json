@@ -1,0 +1,58 @@
+{
+  "forecasts": [
+    {
+      "stationId": "youbike:500101001",
+      "metric": "rent_total",
+      "observation": {
+        "stationId": "youbike:500101001",
+        "observationId": "obs-current",
+        "observedAt": "2026-10-03T00:00:00Z",
+        "providerUpdatedAt": "2026-10-03T00:00:00Z",
+        "fetchedAt": "2026-10-03T00:00:00Z",
+        "timestampQuality": "feed_snapshot",
+        "expectedIntervalSeconds": 60,
+        "status": "operating",
+        "metrics": {
+          "rent_total": 12,
+          "rent_regular": null,
+          "rent_electric": null,
+          "return_docks": 8
+        },
+        "quality": "fresh",
+        "stationVersion": "3d8d9d1debaedd97986d74ddb0e8c501"
+      },
+      "status": "experimental",
+      "reasonCodes": [
+        "CALIBRATION_UNAVAILABLE",
+        "HOLIDAY_CALENDAR_UNAVAILABLE",
+        "FEED_SNAPSHOT_TIMESTAMPS"
+      ],
+      "arrival": {
+        "points": [
+          {
+            "at": "2026-10-03T00:15:00Z",
+            "probability": 1
+          }
+        ],
+        "source": "user_estimate",
+        "distinctConfirmedRides": 0
+      },
+      "medianCount": 9,
+      "p10Count": 9,
+      "p90Count": 9,
+      "probabilityEmpty": null,
+      "probabilityAtOrBelowThreshold": null,
+      "lowCountThreshold": 3,
+      "riskBand": "unknown",
+      "support": {
+        "distinctDays": 7,
+        "effectiveDays": 6.267253014101308,
+        "sameWeekdayDays": 7
+      },
+      "modelVersion": "analog-delta-feed-v1",
+      "calibrationVersion": null,
+      "generatedAt": "2026-10-03T00:01:00Z",
+      "validUntil": "2026-10-03T00:10:00Z"
+    }
+  ]
+}

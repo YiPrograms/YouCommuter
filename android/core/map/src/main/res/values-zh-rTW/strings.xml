@@ -1,0 +1,22 @@
+<resources>
+    <string name="map_view">地圖</string>
+    <string name="list_view">列表</string>
+    <string name="fit_stations">顯示全部站點</string>
+    <string name="zoom_in">放大</string>
+    <string name="zoom_out">縮小</string>
+    <string name="map_unavailable">地圖無法載入</string>
+    <string name="map_not_configured">地圖尚未啟用</string>
+    <string name="map_retry">重試地圖</string>
+    <string name="map_no_positions">無站點位置</string>
+    <string name="map_bikes">借車</string>
+    <string name="map_docks">還車</string>
+    <string name="map_select_station">選擇</string>
+    <string name="map_close_preview">關閉預覽</string>
+    <string name="map_station_bikes">%1$s，可借車輛 %2$s</string>
+    <string name="map_station_docks">%1$s，可還空位 %2$s</string>
+    <string name="my_location">目前位置</string>
+    <string name="location_disabled">請開啟定位</string>
+    <string name="location_unavailable">暫時無法取得位置</string>
+    <string name="location_permission_needed">需要定位權限</string>
+    <string name="map_primary_station">主站點：%1$s</string>
+</resources>

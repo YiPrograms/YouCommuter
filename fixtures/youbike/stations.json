@@ -1,0 +1,4 @@
+[
+ {"country_code":"00","area_code":"00","type":2,"status":1,"station_no":"500101001","name_tw":"測試科技大樓站","address_tw":"測試路一號","parking_spaces":30,"available_spaces":5,"available_spaces_detail":{"yb2":3,"eyb":2},"empty_spaces":24,"forbidden_spaces":0,"lat":"25.02605","lng":"121.5436","time":"2026-10-19 23:03:02","updated_at":"2026-10-19 23:03:31"},
+ {"country_code":"00","area_code":"10","type":2,"status":1,"station_no":"500109001","name_tw":"園區測試站","address_tw":"園區路","parking_spaces":20,"available_spaces":0,"available_spaces_detail":{"yb2":0,"eyb":0},"empty_spaces":18,"forbidden_spaces":0,"lat":"24.78","lng":"121.01","time":"2026-10-19 23:03:02","updated_at":"2026-10-19 23:03:31"}
+]

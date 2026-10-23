@@ -1,0 +1,9 @@
+<resources>
+    <string name="reminder_all_bikes">全部</string>
+    <string name="reminder_bike_types">🚲 %1$s　⚡ %2$s</string>
+    <string name="reminder_bike_types_description">一般車 %1$s，電輔車 %2$s</string>
+    <string name="reminder_regular_label">一般車</string>
+    <string name="reminder_electric_label">電輔車</string>
+    <string name="reminder_regular_description">一般車：%1$s</string>
+    <string name="reminder_electric_description">電輔車：%1$s</string>
+</resources>

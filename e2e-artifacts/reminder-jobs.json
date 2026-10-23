@@ -1,0 +1,11 @@
+{
+  "jobs": 5,
+  "classes": [
+    "dev.yikuo.youcommuter.core.platform.DepartureReminderWorker"
+  ],
+  "keys": [
+    "route_id",
+    "route_revision",
+    "departure_epoch_millis"
+  ]
+}

@@ -1,0 +1,18 @@
+<resources>
+    <string name="prediction_settings">Prediction service</string>
+    <string name="prediction_endpoint">Endpoint URL (optional)</string>
+    <string name="prediction_api_key">API key (optional)</string>
+    <string name="prediction_test">Test connection</string>
+    <string name="prediction_save">Save</string>
+    <string name="prediction_connected">Connected</string>
+    <string name="prediction_connection_failed">Could not connect or incompatible service</string>
+    <string name="prediction_invalid_url">Enter an HTTPS endpoint without credentials or query parameters.</string>
+    <string name="prediction_enter_endpoint">Enter an endpoint.</string>
+    <string name="prediction_save_failed">Could not save. Retry.</string>
+    <string name="prediction_saved">Saved</string>
+    <string name="prediction_disabled">Predictions off</string>
+    <string name="settings_back">Back</string>
+    <string name="settings_discard_title">Discard unsaved changes?</string>
+    <string name="settings_discard">Discard</string>
+    <string name="settings_keep_editing">Keep editing</string>
+</resources>

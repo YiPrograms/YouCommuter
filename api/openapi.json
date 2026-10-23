@@ -1,0 +1,589 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "YouCommuter Prediction API",
+    "version": "1.0.0",
+    "description": "Portable public availability prediction protocol. No installation registration, station browsing or personal-data endpoints. Deployments may optionally require a static bearer API key. Inventory observation metadata versions are independent of database epoch IDs."
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/health/live": {
+      "get": {
+        "operationId": "getLiveness",
+        "summary": "Check whether the HTTP process is alive",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Healthy"
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "operationId": "getReadiness",
+        "summary": "Verify database connectivity and the current schema",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Healthy"
+          },
+          "503": {
+            "$ref": "#/components/responses/Unavailable"
+          }
+        }
+      }
+    },
+    "/v1/forecasts:batch": {
+      "post": {
+        "operationId": "forecastAvailabilityBatch",
+        "summary": "Estimate availability at supplied arrival times from stored history",
+        "description": "1–12 forecasts per batch; 1–91 arrival points per item; body at most 128 KiB. Limited per source IP to 20/minute with burst 10. No personal routes, coordinates, installation IDs or device tokens are required. Public unless deployment enables PREDICTION_API_KEY.",
+        "security": [
+          {},
+          {
+            "ServiceKey": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForecastBatchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ordered forecast results with current observations and honest support states",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForecastBatchResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "503": {
+            "$ref": "#/components/responses/Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "Healthy": {
+        "description": "Healthy",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": [
+                "status"
+              ],
+              "properties": {
+                "status": {
+                  "const": "ok"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Unavailable": {
+        "description": "Dependency temporarily unavailable; infrastructure details are not exposed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "BadRequest": {
+        "description": "Request parameters or body are invalid",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Installation credentials are missing, invalid, or expired",
+        "headers": {
+          "WWW-Authenticate": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "The bootstrap IP or installation read limit was exceeded",
+        "headers": {
+          "Retry-After": {
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "AvailabilityMetrics": {
+        "type": "object",
+        "required": [
+          "rent_total",
+          "rent_regular",
+          "rent_electric",
+          "return_docks"
+        ],
+        "properties": {
+          "rent_total": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "rent_regular": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "rent_electric": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "return_docks": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "code",
+          "message",
+          "requestId"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          }
+        }
+      },
+      "ArrivalDistribution": {
+        "type": "object",
+        "required": [
+          "points",
+          "source",
+          "distinctConfirmedRides"
+        ],
+        "properties": {
+          "points": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "at",
+                "probability"
+              ],
+              "properties": {
+                "at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "probability": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 91
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "personal",
+              "routing_prior",
+              "user_estimate",
+              "mixed"
+            ]
+          },
+          "distinctConfirmedRides": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false,
+        "description": "Sorted unique absolute instants at or after server receipt, probabilities summing to one within 1e-6. No distribution tail is discarded. Horizon is measured from the source observation, up to 90 minutes."
+      },
+      "ForecastRequestItem": {
+        "type": "object",
+        "required": [
+          "stationId",
+          "metric",
+          "arrival",
+          "lowCountThreshold"
+        ],
+        "properties": {
+          "stationId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "metric": {
+            "type": "string",
+            "enum": [
+              "rent_total",
+              "rent_regular",
+              "rent_electric",
+              "return_docks"
+            ]
+          },
+          "arrival": {
+            "$ref": "#/components/schemas/ArrivalDistribution"
+          },
+          "lowCountThreshold": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForecastBatchRequest": {
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ForecastRequestItem"
+            },
+            "minItems": 1,
+            "maxItems": 12
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForecastObservation": {
+        "type": "object",
+        "required": [
+          "stationId",
+          "observationId",
+          "observedAt",
+          "providerUpdatedAt",
+          "fetchedAt",
+          "timestampQuality",
+          "expectedIntervalSeconds",
+          "status",
+          "metrics",
+          "quality",
+          "stationVersion"
+        ],
+        "properties": {
+          "observationId": {
+            "type": "string"
+          },
+          "observedAt": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "providerUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fetchedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "timestampQuality": {
+            "type": "string",
+            "enum": [
+              "feed_snapshot",
+              "provider_only"
+            ],
+            "description": "feed_snapshot identifies the provider inventory snapshot time, not a bike-controller or rental event. provider_only means no feed observation time is available; local fetch time never substitutes for observation time."
+          },
+          "expectedIntervalSeconds": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "operating",
+              "temporarily_closed",
+              "retired",
+              "unknown"
+            ]
+          },
+          "metrics": {
+            "$ref": "#/components/schemas/AvailabilityMetrics"
+          },
+          "quality": {
+            "type": "string",
+            "enum": [
+              "fresh",
+              "aging",
+              "stale",
+              "unavailable"
+            ]
+          },
+          "stationId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "stationVersion": {
+            "type": "string",
+            "description": "First 16 bytes of SHA-256, lowercase hex, over UTF-8 capacity|systemType|latitude|longitude. Null capacity is ?, coordinates are integer microdegrees: truncate latitude/longitude times 1,000,000 toward zero, then encode as base-10 integers. This compares station metadata across independent clients; database epoch IDs are private."
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForecastSupport": {
+        "type": "object",
+        "required": [
+          "distinctDays",
+          "effectiveDays",
+          "sameWeekdayDays"
+        ],
+        "properties": {
+          "distinctDays": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "effectiveDays": {
+            "type": "number",
+            "minimum": 0
+          },
+          "sameWeekdayDays": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "Forecast": {
+        "type": "object",
+        "required": [
+          "stationId",
+          "metric",
+          "observation",
+          "status",
+          "reasonCodes",
+          "arrival",
+          "medianCount",
+          "p10Count",
+          "p90Count",
+          "probabilityEmpty",
+          "probabilityAtOrBelowThreshold",
+          "lowCountThreshold",
+          "riskBand",
+          "support",
+          "modelVersion",
+          "calibrationVersion",
+          "generatedAt",
+          "validUntil"
+        ],
+        "properties": {
+          "stationId": {
+            "type": "string"
+          },
+          "metric": {
+            "type": "string",
+            "enum": [
+              "rent_total",
+              "rent_regular",
+              "rent_electric",
+              "return_docks"
+            ]
+          },
+          "observation": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ForecastObservation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "building",
+              "experimental",
+              "validated",
+              "unavailable"
+            ]
+          },
+          "reasonCodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "arrival": {
+            "$ref": "#/components/schemas/ArrivalDistribution"
+          },
+          "medianCount": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "p10Count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "p90Count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "probabilityEmpty": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "probabilityAtOrBelowThreshold": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "lowCountThreshold": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "riskBand": {
+            "type": "string",
+            "enum": [
+              "healthy",
+              "caution",
+              "high",
+              "unknown"
+            ]
+          },
+          "support": {
+            "$ref": "#/components/schemas/ForecastSupport"
+          },
+          "modelVersion": {
+            "type": "string"
+          },
+          "calibrationVersion": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "generatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "validUntil": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The current service emits building, experimental, or unavailable only. Experimental forecasts expose approximate median/P10/P90, null shortage probabilities, and unknown risk. Weekday/weekend matching is used until a government holiday calendar exists; HOLIDAY_CALENDAR_UNAVAILABLE identifies this limitation. validUntil is the source aging deadline; clients must check it again when displaying."
+      },
+      "ForecastBatchResponse": {
+        "type": "object",
+        "required": [
+          "forecasts"
+        ],
+        "properties": {
+          "forecasts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Forecast"
+            },
+            "minItems": 1,
+            "maxItems": 12
+          }
+        },
+        "additionalProperties": false,
+        "description": "All results are returned in input order. Malformed batches are rejected as a whole. Unknown stations and station-specific data/history/horizon issues appear as unavailable/building entries with reasonCodes, preserving healthy alternatives."
+      }
+    },
+    "securitySchemes": {
+      "ServiceKey": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Optional deployment API key. No bootstrap or token rotation endpoint."
+      }
+    }
+  }
+}

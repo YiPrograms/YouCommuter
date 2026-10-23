@@ -1,0 +1,3 @@
+# Copy to local.properties. Enable Maps SDK for Android on your Google Cloud project.
+# Restrict this client key to the app package + signing SHA-1 and Maps SDK for Android.
+MAPS_API_KEY=

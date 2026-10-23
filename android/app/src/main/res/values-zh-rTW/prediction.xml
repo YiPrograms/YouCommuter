@@ -1,0 +1,18 @@
+<resources>
+    <string name="prediction_settings">預測服務</string>
+    <string name="prediction_endpoint">Endpoint URL（選填）</string>
+    <string name="prediction_api_key">API key（選填）</string>
+    <string name="prediction_test">測試連線</string>
+    <string name="prediction_save">儲存</string>
+    <string name="prediction_connected">已連線</string>
+    <string name="prediction_connection_failed">無法連線或服務格式不符</string>
+    <string name="prediction_invalid_url">請輸入 HTTPS endpoint，不含帳密或查詢參數。</string>
+    <string name="prediction_enter_endpoint">請輸入 endpoint。</string>
+    <string name="prediction_save_failed">無法儲存，請重試。</string>
+    <string name="prediction_saved">已儲存</string>
+    <string name="prediction_disabled">預測已停用</string>
+    <string name="settings_back">返回</string>
+    <string name="settings_discard_title">放棄未儲存的變更？</string>
+    <string name="settings_discard">放棄變更</string>
+    <string name="settings_keep_editing">繼續編輯</string>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="map_view">Map</string>
+    <string name="list_view">List</string>
+    <string name="fit_stations">Show all stations</string>
+    <string name="zoom_in">Zoom in</string>
+    <string name="zoom_out">Zoom out</string>
+    <string name="map_unavailable">Could not load map</string>
+    <string name="map_not_configured">Map unavailable</string>
+    <string name="map_retry">Retry map</string>
+    <string name="map_no_positions">Station locations unavailable</string>
+    <string name="map_bikes">Borrow</string>
+    <string name="map_docks">Return</string>
+    <string name="map_select_station">Select</string>
+    <string name="map_close_preview">Close preview</string>
+    <string name="map_station_bikes">%1$s, bikes %2$s</string>
+    <string name="map_station_docks">%1$s, docks %2$s</string>
+    <string name="my_location">My location</string>
+    <string name="location_disabled">Turn on location</string>
+    <string name="location_unavailable">Location unavailable</string>
+    <string name="location_permission_needed">Location permission required</string>
+    <string name="map_primary_station">Primary: %1$s</string>
+</resources>

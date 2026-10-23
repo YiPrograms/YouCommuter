@@ -1,0 +1,80 @@
+{
+  "verifiedAt": "2026-10-21T01:54:41.465477+00:00",
+  "rule": {
+    "deviceNamePrefix": "EYB",
+    "ownerConfirmedSampleBikeType": "Regular",
+    "trigger": "NewAclConnection",
+    "target": "SelectedBorrowStation",
+    "disconnectAction": "None"
+  },
+  "unitTests": {
+    "total": 105,
+    "failures": 0,
+    "modules": {
+      "android/app": 13,
+      "android/core/database": 4,
+      "android/core/domain": 35,
+      "android/core/data": 18,
+      "android/core/map": 4,
+      "android/feature/stations": 7,
+      "android/feature/routes": 12,
+      "android/feature/commute": 12
+    }
+  },
+  "lint": {
+    "app": {
+      "errors": 0,
+      "warnings": 12
+    },
+    "core/platform": {
+      "errors": 0,
+      "warnings": 3
+    }
+  },
+  "builds": {
+    "debug": {
+      "path": "android/app/build/outputs/apk/debug/app-debug.apk",
+      "sha256": "87bbab42b647f8fbbaf311c242fc8a0ee3f87ee26703e51e057c0e915377a263"
+    },
+    "release": {
+      "path": "android/app/build/outputs/apk/release/app-release-unsigned.apk",
+      "sha256": "27d249ac7add2df7bb7cea1bbee6be1152f52372281732765913915de9fe31ec"
+    }
+  },
+  "manifestChecks": {
+    "debug": {
+      "package": "dev.yikuo.youcommuter.debug",
+      "minSdk": "29",
+      "borrowService": "dev.yikuo.youcommuter.core.platform.BluetoothBorrowService",
+      "foregroundServiceType": "connectedDevice",
+      "scanPermission": false,
+      "debugObservationService": true
+    },
+    "release": {
+      "package": "dev.yikuo.youcommuter",
+      "minSdk": "29",
+      "borrowService": "dev.yikuo.youcommuter.core.platform.BluetoothBorrowService",
+      "foregroundServiceType": "connectedDevice",
+      "scanPermission": false,
+      "debugObservationService": false
+    }
+  },
+  "android33Smoke": {
+    "permissionDeniedManualBorrowReturn": true,
+    "foregroundNotificationSelectedStation": true,
+    "homeScreenObservationContinues": true,
+    "manualBorrowStopsService": true,
+    "cancelStopsService": true,
+    "forceStopThenForegroundResumesPendingCommute": true,
+    "bluetoothOffStopsService": true,
+    "rapidBluetoothToggleAndForegroundResumePasses": 3,
+    "finalBuildAppCrashes": 0,
+    "finalState": "Idle"
+  },
+  "physicalYouBikeConnectionTestedWithNewBuild": false,
+  "inventoryNetworkValidationInThisRun": false,
+  "cleanup": {
+    "testAppDataCleared": true,
+    "emulatorStopped": true
+  }
+}

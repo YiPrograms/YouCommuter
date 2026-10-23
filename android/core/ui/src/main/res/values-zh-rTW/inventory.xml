@@ -1,0 +1,6 @@
+<resources>
+    <string name="inventory_unknown">未知</string>
+    <string name="inventory_regular">一般車：%1$s</string>
+    <string name="inventory_electric">電輔車：%1$s</string>
+    <string name="inventory_docks">可還空位：%1$s</string>
+</resources>
